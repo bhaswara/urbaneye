@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 text-center">
+        <h1 class="display-4">UrbanEye</h1>
+        <p class="lead">AI Vision for Smarter Urban Analysis</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mb-4">
+      <form action="/infer" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" class="custom-file-input" id="inputGroupFile"
+              aria-describedby="inputGroupFileAddon04" onchange="updateFileName(this)">
+            <label class="custom-file-label" for="inputGroupFile">Choose a file</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-primary btn-upload" type="submit" id="inputGroupFileAddon04">Upload</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 my-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Welcome to UrbanEye</h5>
+          <p class="card-text">
+            UrbanEye is an AI-powered online platform designed to interpret images of urban reports. With UrbanEye, citizens can simply upload a report photo and instantly receive AI-generated insights with a single click.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script>
+  gsap.from(".pricing-header", { opacity: 0, y: -50, duration: 1, ease: "power4.out" });
+  gsap.from(".custom-file", { opacity: 0, y: 50, duration: 1, delay: 0.5, ease: "power4.out" });
+  gsap.from(".card", { opacity: 0, y: 50, duration: 1, delay: 1, ease: "power4.out" });
+  gsap.from(".btn-upload", { opacity: 0, y: 50, duration: 1, delay: 0.5, ease: "power4.out" });
+  
+  function updateFileName(input) {
+    const fileName = input.files[0].name;
+    const label = input.nextElementSibling;
+    label.innerHTML = fileName;
+  }
+</script>
+
+{% endblock %}

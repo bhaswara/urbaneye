@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <p class="lead">Prediksi Gambar</p>
+    <h3><img src="data:image/jpeg;charset=utf-8;base64, {{photo}}" width="50%"></h3>
+    <h1 class="display-4">{{name}}</h1>
+    <p class="mt-5">Similarity: <strong>{{confidence}}%</strong></p>
+    <p class="mt-5">Execution Time: <strong>{{exec_time}}</strong></p>
+    <p class="mt-5"> <a href="/">Coba lagi?</a></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RADSCAN</title>
+  
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <link rel="icon" href="https://img.icons8.com/material-sharp/96/000000/vision.png" type="image/x-icon">
+
+  <style>
+    @media (max-width: 576px) {
+      .upload-form {
+        padding: 0 15px;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .slide-up {
+      animation: slideUp 0.5s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body cz-shortcut-listen="true">
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha384-/5+zBuQm8miGwbCPtXrh4TLkuYvL5+Avi4OB9VV90xu3AmkTBQ4uE23tOTf1o/mN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"
+    integrity="sha384-D5z2X+v4iPfsfJszz1lScd2QC5KUpSt+swO65C57SlBbUPjBq5zjrHi+Ai4mOD5H" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      // Update the file input label when a file is selected
+      $("#inputGroupFile").on("change", function () {
+        let fileName = $(this).val().split("\\").pop(); // Get the file name
+        $(this).next(".custom-file-label").html(fileName); // Update the label text
+      });
+    
+      // Apply animations on page load
+      $(".container").addClass("fade-in");
+    
+      $(".card").addClass("slide-up");
+    });
+  </script>
+  </body>
+</html>
